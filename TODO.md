@@ -1,0 +1,5 @@
+- [x] Update requirements.txt: Remove openai-whisper, add transformers and librosa
+- [x] Update app.py imports: Change to transformers and add librosa
+- [x] Add global model and processor variables in app.py
+- [x] Add @app.before_first_request load_model function in app.py
+- [x] Update transcribe function in app.py to use model and processor for transcription

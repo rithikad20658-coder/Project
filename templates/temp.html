@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Audio - TSE</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #001f3f, #003d6b, #006c9e);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.10);
+            padding: 40px;
+            width: 75%;
+            max-width: 750px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        label {
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            margin-top: 10px;
+            background: rgba(255,255,255,0.25);
+            cursor: pointer;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: block;
+            margin: 30px auto 0 auto;
+            padding: 14px 35px;
+            background: #00c3ff;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 40px;
+            cursor: pointer;
+            text-align: center;
+            transition: 0.3s;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+        }
+
+        .btn:hover {
+            background: #0094c6;
+            transform: scale(1.08);
+        }
+
+        .preview-section {
+            margin-top: 20px;
+            background: rgba(255,255,255,0.10);
+            border-radius: 10px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>🎧 Upload Audio Files</h2>
+
+        <form action="/extract" method="POST" enctype="multipart/form-data">
+
+            <!-- Reference file -->
+            <label>Reference Sample (Target Speaker): 🎵</label>
+            <input type="file" name="target" id="refFile" accept="audio/*" required>
+
+            <!-- Mixed audio -->
+            <label>Mixed Audio File: 🔊</label>
+            <input type="file" name="mixed" id="mixFile" accept="audio/*" required>
+
+            <div class="preview-section" id="previewBox" style="display:none;">
+                <h3>Audio Preview</h3>
+
+                <p><strong>Reference Audio:</strong></p>
+                <audio id="refAudio" controls></audio>
+
+                <p><strong>Mixed Audio:</strong></p>
+                <audio id="mixAudio" controls></audio>
+            </div>
+
+            <button type="submit" class="btn">🔍 Extract Speaker</button>
+        </form>
+    </div>
+
+<script>
+    const refFile = document.getElementById("refFile");
+    const mixFile = document.getElementById("mixFile");
+    const previewBox = document.getElementById("previewBox");
+
+    refFile.onchange = () => {
+        const file = refFile.files[0];
+        if(file) {
+            document.getElementById("refAudio").src = URL.createObjectURL(file);
+            previewBox.style.display = "block";
+        }
+    };
+
+    mixFile.onchange = () => {
+        const file = mixFile.files[0];
+        if(file) {
+            document.getElementById("mixAudio").src = URL.createObjectURL(file);
+            previewBox.style.display = "block";
+        }
+    };
+</script>
+
+</body>
+</html>

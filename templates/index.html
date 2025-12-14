@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target Speaker Extraction</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.55);
+            padding: 50px;
+            border-radius: 18px;
+            text-align: center;
+            width: 75%;
+            max-width: 700px;
+            backdrop-filter: blur(7px);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: #e6e6e6;
+        }
+
+        .btn {
+            display: inline-block;
+            font-size: 1.2rem;
+            padding: 14px 30px;
+            background: #00c3ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 40px;
+            transition: 0.3s;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background: #0087b6;
+            transform: scale(1.07);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 0.75; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        footer {
+            margin-top: 18px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="icon">🎤</div>
+
+        <h1>Target Speaker Extraction System</h1>
+
+        <p>
+            Isolate and extract one speaker's voice from a multi-speaker audio recording using  deep learning.
+            Upload your audio and let our system separate only the target speaker with clarity and precision.
+        </p>
+
+        <a href="/upload" class="btn">▶ Start Extraction</a>
+
+        <footer></footer>
+    </div>
+
+</body>
+</html>
